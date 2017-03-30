@@ -4,7 +4,7 @@ title:  "SVM初步分析"
 date:   2017-03-19 10:23:05 +0800
 categories: jekyll update
 ---
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ###缘起
 一直想动手写一点东西，但是又担心自己功力不够，最近两周看了看支持向量机相关的一些文章，决定写一点儿来记录，不至于最后什么都没有留下。
 ### 最大边界分类器
