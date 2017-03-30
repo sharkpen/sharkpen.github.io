@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "SMO算法详解"
+date:   2017-03-19 10:23:05 +0800
+categories: jekyll update
+---
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+### 算法基本原理
+SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模
+每次优化处理只处理两个样本，<font color="red" face="黑体">并且是使用解析的方法进行分析的</font>
+### 序列选择
+### 具体实现
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

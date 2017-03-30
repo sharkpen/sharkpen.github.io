@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Welcome to Jekyll!"
+date:   2017-03-18 14:09:05 +0800
+categories: jekyll update
+---
+###
+很久没有纪录心情了，可能有好几年了，好久没有仔细的剖析过自己也很久没有将得失付诸笔端了
+最近处于舒适区太久了，学习的速度太慢，工作的时候出茬，自己是一个愚钝的人，最近努力也变得欠缺了。
+学习与生活习惯已经固化了好多年，是时候作出一个改变了。
+不记录不整理的毛病已经让你自己吃了太多的亏了，记性不好尤其是短时记忆。按照每天的工作任务进行归档整理、回顾分析、纪录得失，晚上进行总结
+每周日晚上进行归档，回顾学习成绩与任务完成情况，预计下周工作
+
+Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

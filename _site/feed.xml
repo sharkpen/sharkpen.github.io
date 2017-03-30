@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.4.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-31T01:00:30+08:00</updated><id>http://localhost:4000/</id><title type="html">摩呼罗迦所居</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">SVM初步分析</title><link href="http://localhost:4000/jekyll/update/2017/03/19/SVM%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90.html" rel="alternate" type="text/html" title="SVM初步分析" /><published>2017-03-19T10:23:05+08:00</published><updated>2017-03-19T10:23:05+08:00</updated><id>http://localhost:4000/jekyll/update/2017/03/19/SVM%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/03/19/SVM%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90.html">&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;最大边界分类起&quot;&gt;最大边界分类起&lt;/h3&gt;
+
+&lt;p&gt;SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模
+每次优化处理只处理两个样本，&lt;font color=&quot;red&quot; face=&quot;黑体&quot;&gt;并且是使用解析的方法进行分析的&lt;/font&gt;&lt;/p&gt;
+&lt;h3 id=&quot;序列选择&quot;&gt;序列选择&lt;/h3&gt;
+&lt;h3 id=&quot;具体实现&quot;&gt;具体实现&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">最大边界分类起</summary></entry><entry><title type="html">SMO算法详解</title><link href="http://localhost:4000/jekyll/update/2017/03/19/SMO%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html" rel="alternate" type="text/html" title="SMO算法详解" /><published>2017-03-19T10:23:05+08:00</published><updated>2017-03-19T10:23:05+08:00</updated><id>http://localhost:4000/jekyll/update/2017/03/19/SMO%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/03/19/SMO%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3.html">&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;算法基本原理&quot;&gt;算法基本原理&lt;/h3&gt;
+&lt;p&gt;SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模
+每次优化处理只处理两个样本，&lt;font color=&quot;red&quot; face=&quot;黑体&quot;&gt;并且是使用解析的方法进行分析的&lt;/font&gt;&lt;/p&gt;
+&lt;h3 id=&quot;序列选择&quot;&gt;序列选择&lt;/h3&gt;
+&lt;h3 id=&quot;具体实现&quot;&gt;具体实现&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">算法基本原理 SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模 每次优化处理只处理两个样本，并且是使用解析的方法进行分析的 序列选择 具体实现 def print_hi(name) puts &quot;Hi, #{name}&quot; end print_hi('Tom') #=&amp;gt; prints 'Hi, Tom' to STDOUT.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/03/18/%E8%AA%93%E8%A8%80.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-18T14:09:05+08:00</published><updated>2017-03-18T14:09:05+08:00</updated><id>http://localhost:4000/jekyll/update/2017/03/18/%E8%AA%93%E8%A8%80</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/03/18/%E8%AA%93%E8%A8%80.html">&lt;h2&gt;#&lt;/h2&gt;
+&lt;p&gt;很久没有纪录心情了，可能有好几年了，好久没有仔细的剖析过自己也很久没有将得失付诸笔端了
+最近处于舒适区太久了，学习的速度太慢，工作的时候出茬，自己是一个愚钝的人，最近努力也变得欠缺了。
+学习与生活习惯已经固化了好多年，是时候作出一个改变了。
+不记录不整理的毛病已经让你自己吃了太多的亏了，记性不好尤其是短时记忆。按照每天的工作任务进行归档整理、回顾分析、纪录得失，晚上进行总结
+每周日晚上进行归档，回顾学习成绩与任务完成情况，预计下周工作&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html"># 很久没有纪录心情了，可能有好几年了，好久没有仔细的剖析过自己也很久没有将得失付诸笔端了 最近处于舒适区太久了，学习的速度太慢，工作的时候出茬，自己是一个愚钝的人，最近努力也变得欠缺了。 学习与生活习惯已经固化了好多年，是时候作出一个改变了。 不记录不整理的毛病已经让你自己吃了太多的亏了，记性不好尤其是短时记忆。按照每天的工作任务进行归档整理、回顾分析、纪录得失，晚上进行总结 每周日晚上进行归档，回顾学习成绩与任务完成情况，预计下周工作</summary></entry><entry><title type="html">拉格朗日乘数法</title><link href="http://localhost:4000/jekyll/update/2017/03/18/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0%E6%B3%95.html" rel="alternate" type="text/html" title="拉格朗日乘数法" /><published>2017-03-18T14:09:05+08:00</published><updated>2017-03-18T14:09:05+08:00</updated><id>http://localhost:4000/jekyll/update/2017/03/18/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0%E6%B3%95</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/03/18/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0%E6%B3%95.html">&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;拉格朗日乘数法(Lagrange Multiplier Method)的历史很悠久，拉格朗日在1764年就已经有了一些滥觞的想法，他在一本回忆录中使用了拉格朗日乘数法的思想解决了一道关于月球共振方面的问题。
+十几年后对这个思想进行了整理，他提出了一个更加一般化的版本，并且在Méchanique analitique中正式提出了这个版本。
+作为一个求解在限定条件下求多元函数极值的一般性数学方法，拉格朗日乘数法的应用十分广泛。为了更好的学习机器学习，理解一下基本算法。&lt;/p&gt;
+&lt;h3 id=&quot;隐函数条件定理&quot;&gt;隐函数条件定理&lt;/h3&gt;
+&lt;p&gt;设&lt;script type=&quot;math/tex&quot;&gt;E \subset R_2&lt;/script&gt;,函数&lt;script type=&quot;math/tex&quot;&gt;F:E \rightarrow R_2&lt;/script&gt;,对于方程&lt;script type=&quot;math/tex&quot;&gt;F(x,y) = 0&lt;/script&gt; (1),如果存在集合&lt;script type=&quot;math/tex&quot;&gt;I,J \subset E&lt;/script&gt;,对任何&lt;script type=&quot;math/tex&quot;&gt;x \in I&lt;/script&gt;,有唯一确定的&lt;script type=&quot;math/tex&quot;&gt;y \in J&lt;/script&gt;,使得&lt;script type=&quot;math/tex&quot;&gt;(x,y) \in E&lt;/script&gt;,且
+满足方程(1),则称方程(1)确定了一个定义在I上，值域于J上的隐函数，将他记为：&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;y = f(x),x \in I,y \in J&lt;/script&gt;,那么恒等式
+&lt;script type=&quot;math/tex&quot;&gt;F(x,f(x)) \equiv 0.x \in I&lt;/script&gt;
+为了保证隐函数的存在，有隐函数存在唯一性定理：
+如果函数F(x,y)满足如下条件：&lt;/p&gt;
+
+&lt;p&gt;1.F在以&lt;script type=&quot;math/tex&quot;&gt;P_o(x_o,y_o)&lt;/script&gt;为內点的某一区域&lt;script type=&quot;math/tex&quot;&gt;D \subset R_2&lt;/script&gt;上连续&lt;/p&gt;
+
+&lt;p&gt;2.&lt;script type=&quot;math/tex&quot;&gt;F(x_o,y_o) = 0&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;3.F在D內存在连续的偏导数 &lt;script type=&quot;math/tex&quot;&gt;F_y(x,y)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;4.&lt;script type=&quot;math/tex&quot;&gt;F_y(x_o,y_o) \neq 0&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;则
+    1.存在点&lt;script type=&quot;math/tex&quot;&gt;P_o&lt;/script&gt;的某个邻域&lt;/p&gt;
+
+&lt;h3 id=&quot;条件极值&quot;&gt;条件极值&lt;/h3&gt;
+&lt;p&gt;拉格朗日乘数法应用的问题为条件极值问题，在学习拉格朗日乘数法之前，我们先对条件极值问题进行介绍，并且使用一般方法进行求解。
+在多元函数的定义域內求解极值问题比较简单，但是在实际生活中基致电的搜索范围收到各种不同的条件限制，这类附有约束条件的极值问题被称为条件极值问题。
+我们使用数学语言对条件极值问题进行描述如下：
+    在条件组
+    &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\phi(x_1,x_2,...,x_n) = 0,k=1,2,...m (m &lt; n&gt;) %]]&gt;&lt;/script&gt;
+    的限制下，求目标函数
+    &lt;script type=&quot;math/tex&quot;&gt;y = f(x_1,x_2,...,x_n)&lt;/script&gt;
+    的极值。&lt;/p&gt;
+&lt;h3 id=&quot;二元条件下的拉格朗日乘数法&quot;&gt;二元条件下的拉格朗日乘数法&lt;/h3&gt;
+&lt;p&gt;我们从 &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; , &lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt; 皆为二元函数这种情况入手。求&lt;script type=&quot;math/tex&quot;&gt;z=f(x,y)&lt;/script&gt;的极值，约束条件为C : &lt;script type=&quot;math/tex&quot;&gt;\phi(x,y)=0&lt;/script&gt;.
+如果我们把条件C看作&lt;/p&gt;
+
+&lt;h3 id=&quot;数学定义&quot;&gt;数学定义&lt;/h3&gt;
+&lt;p&gt;能够使用拉格朗日乘数法求解的问题可以描述为如下的数学语言&lt;/p&gt;
+
+&lt;p&gt;k
+＃数学推倒
+＃例子解析
+＃理解说明
+[jekyll-docs]: https://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/&lt;/p&gt;</content><author><name></name></author><summary type="html">拉格朗日乘数法(Lagrange Multiplier Method)的历史很悠久，拉格朗日在1764年就已经有了一些滥觞的想法，他在一本回忆录中使用了拉格朗日乘数法的思想解决了一道关于月球共振方面的问题。 十几年后对这个思想进行了整理，他提出了一个更加一般化的版本，并且在Méchanique analitique中正式提出了这个版本。 作为一个求解在限定条件下求多元函数极值的一般性数学方法，拉格朗日乘数法的应用十分广泛。为了更好的学习机器学习，理解一下基本算法。 隐函数条件定理 设,函数,对于方程 (1),如果存在集合,对任何,有唯一确定的,使得,且 满足方程(1),则称方程(1)确定了一个定义在I上，值域于J上的隐函数，将他记为：</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2017/03/18/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2017-03-18T14:09:05+08:00</published><updated>2017-03-18T14:09:05+08:00</updated><id>http://localhost:4000/jekyll/update/2017/03/18/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2017/03/18/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
