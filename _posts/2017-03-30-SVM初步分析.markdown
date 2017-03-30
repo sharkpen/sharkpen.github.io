@@ -5,7 +5,11 @@ date:   2017-03-19 10:23:05 +0800
 categories: jekyll update
 ---
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-### 最大边界分类起
+###缘起
+一直想动手写一点东西，但是又担心自己功力不够，最近两周看了看支持向量机相关的一些文章，决定写一点儿来记录，不至于最后什么都没有留下。
+### 最大边界分类器
+支持向量机解决的是二分类问题，我们在一个n维向量空间$$R^n$$中有两类向量，一种我们给它们打上标签$$y_0=-1$$（图中蓝色的点）,另外一种我们打上标签$$y_1=1$$（图中红色的点）
+，从图中我们可以看到，两个颜色的点有着不同的向量特征，我们可以用一个超平面将两类点分割开来
 ![hyper-plane](https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/Hyper-Plane.png)
 SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模
 每次优化处理只处理两个样本，<font color="red" face="黑体">并且是使用解析的方法进行分析的</font>
