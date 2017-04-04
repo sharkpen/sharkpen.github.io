@@ -29,7 +29,7 @@ $$w_0x+b_0=0$$ .........$$p_0$$
 
 $$wx+b = wx+b = 1,wx+b=-1$$
 
-此时我们可以求出数据点中间gap的距离（$$p_1,p_2$$的距离）为$$/gamma = 2/|w|$$。如果这个距离最大，那么最好的分类平面也就找到了。
+此时我们可以求出数据点中间gap的距离（$$p_1,p_2$$的距离）为$$\gamma = 2/|w|$$。如果这个距离最大，那么最好的分类平面也就找到了。
 我们将寻找最好的分类平面问题转化为了如下的数学问题。
 
 $$max \frac{2}{|w|}$$
@@ -40,7 +40,7 @@ $$|w^T(x_i)+b|>1$$
 
 通过数学变化我们整理问题为
 
-$$min \frac{1}{2}|w|^2,s.t.,y_i(w^Tx_i+b)>=1,i=1,2/ldots,n$$
+$$min \frac{1}{2}|w|^2,s.t.,y_i(w^Tx_i+b)>=1,i=1,2\ldots,n$$
 
 ![hyper-plane](https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/Hyper-Plane.png)
 SMO算法一般被称为最小序列算法，和其他一些SVM的改进算法一样，是把整个二次规划为题分解为很多易于处理的小问题，不过SMO算法能够将问题分解到可能达到的最小规模
