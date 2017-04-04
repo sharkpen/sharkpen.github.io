@@ -16,7 +16,7 @@ categories: jekyll update
 如图所示，我们在一个n维向量空间$$R^n$$中有两类向量，一种我们给它们打上标签$$y_0=-1$$（图中蓝色的点）,另外一种我们打上标签$$y_1=1$$（图中红色的点）
 ，从图中我们可以看到，两个颜色的点有着不同的向量特征，图中的直线就是一个能够将样本点区分的超平面，找到一个这样的平面不是什么难事儿，有无数个这样的超平面供我们进行选择，
 而哪个平面是最好的？
-<div align=center><img width="300" height="300" src="https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/classifier.jpeg"/></div>
+<center><img width="300" height="300" src="https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/classifier.jpeg"/></center>
 <center>图 1</center>
 支持向量机要解决的第一个问题就是确定最好的超平面。
 我们设要找的超平面为
