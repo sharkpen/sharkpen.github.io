@@ -17,7 +17,7 @@ categories: jekyll update
 ，从图中我们可以看到，两个颜色的点有着不同的向量特征，图中的直线就是一个能够将样本点区分的超平面，找到一个这样的平面不是什么难事儿，有无数个这样的超平面供我们进行选择，
 而哪个平面是最好的？
 
-![hyper-plane](https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/classifier.jepg)
+![classifer](https://raw.githubusercontent.com/sharkpen/sharkpen.github.io/master/public/upload/classifier.jpeg)
 支持向量机要解决的第一个问题就是确定最好的超平面。
 我们设要找的超平面为
 
