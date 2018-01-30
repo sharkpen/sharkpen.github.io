@@ -12,4 +12,12 @@ categories: jekyll update
 $$
     \frac {dP} {dt} = rP \cdot (1- \frac {P} {K})
 $$
+从公式中我们可以看出来前期的人口增长近似正比于 $$rP$$ 其中r可以看作人口增长速度，随着人口的增加 $$ \frac {rP^2} {K} $$ 这部分的数据变得越来越大，K表示客观环境对人口数量的限制。该方程的解为:
+$$
+ P(t) = \frac {KP_0e^rt} {K + P_0(e^rt-1)}
+$$
+where
+$$
+\lim\limits_{t\to \infty}
+$$
 
