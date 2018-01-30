@@ -8,10 +8,8 @@ categories: jekyll update
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 ### 逻辑斯特函数
-聊起逻辑斯特回归不能略过逻辑斯特函数，这个函数有将近200年的历史了，是Pierre François Verhulst在1838年提出的最早用来描述人口增长，在函数的前半段函数的增长近似于指数增长，后半段却又接近平稳。在人口假设中，他假定人口增长速度依赖于人口规模，人口比较少的时候是线性增长，人口比较多的时候增长速度不变
+聊起逻辑斯特回归不能略过逻辑斯特函数，这个函数有将近200年的历史了，是Pierre François Verhulst在1838年提出的最早用来描述人口增长，在函数的前半段函数的增长近似于指数增长，后半段却又接近平稳。在人口假设中，他假定人口增长速度依赖于人口规模，人口比较少的时候是线性增长，人口比较多的时候增长速度不变，从而提出了如下的公式
 $$
- dP \frac dt = rP \cdot (1- P \frac K)
+    \frac {dP} {dt} = rP \cdot (1- \frac {P} {K})
 $$
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+
